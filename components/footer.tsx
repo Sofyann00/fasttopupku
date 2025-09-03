@@ -47,7 +47,7 @@ export function Footer() {
                   <span className="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center">
                     <Phone className="w-4 h-4" />
                   </span>
-                  085811959392
+                  +62 851-2328-6761
                 </a>
               </li>
               <li className="flex items-start gap-3 text-gray-600">
