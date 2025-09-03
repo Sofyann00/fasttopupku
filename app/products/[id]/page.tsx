@@ -74,6 +74,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
     setIsLoadingPayment(true)
     setShowPaymentDialog(true);
+    setPaymentData(true);
     // try {
     //   const response = await fetch('/api/payment', {
     //     method: 'POST',
