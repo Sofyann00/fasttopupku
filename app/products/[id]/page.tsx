@@ -73,41 +73,42 @@ export default function ProductPage({ params }: { params: { id: string } }) {
     // }
 
     setIsLoadingPayment(true)
-    try {
-      const response = await fetch('/api/payment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          outputCurrency: "IDR",
-          reference: `order-${Date.now()}`,
-          inputCurrency: "IDR",
-          balanceType: "fiat",
-          paymentMethod: selectedPayment,
-          inputAmount: selectedItem.price
-        })
-      });
+    setShowPaymentDialog(true);
+    // try {
+    //   const response = await fetch('/api/payment', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //       outputCurrency: "IDR",
+    //       reference: `order-${Date.now()}`,
+    //       inputCurrency: "IDR",
+    //       balanceType: "fiat",
+    //       paymentMethod: selectedPayment,
+    //       inputAmount: selectedItem.price
+    //     })
+    //   });
 
-      const data = await response.json();
+    //   const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(data.message || 'Failed to create payment');
-      }
+    //   if (!response.ok) {
+    //     throw new Error(data.message || 'Failed to create payment');
+    //   }
 
-      console.log(data.data)
+    //   console.log(data.data)
 
-      setPaymentData(data.data);
-      setShowPaymentDialog(true);
-    } catch (error) {
-      toast({
-        title: "Terjadi Kesalahan",
-        description: error instanceof Error ? error.message : "Gagal memproses pembayaran",
-        variant: "destructive"
-      });
-    } finally {
-      setIsLoadingPayment(false)
-    }
+    //   setPaymentData(data.data);
+    //   setShowPaymentDialog(true);
+    // } catch (error) {
+    //   toast({
+    //     title: "Terjadi Kesalahan",
+    //     description: error instanceof Error ? error.message : "Gagal memproses pembayaran",
+    //     variant: "destructive"
+    //   });
+    // } finally {
+    //   setIsLoadingPayment(false)
+    // }
   }
 
   const handlePaymentComplete = async () => {
