@@ -73,8 +73,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
     // }
 
     setIsLoadingPayment(true)
-    setShowPaymentDialog(true);
     setPaymentData(true);
+    setShowPaymentDialog(true);
+    
     // try {
     //   const response = await fetch('/api/payment', {
     //     method: 'POST',
@@ -641,12 +642,12 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   <p>Berlaku sampai: {new Date(paymentData.expiredAt).toLocaleString('id-ID')}</p>
                 </div>
               </div>
-            ) : selectedPayment === 'va' && paymentData?.paymentFiat ? (
+            ) : selectedPayment === 'va' ? (
               <div className="space-y-4">
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <p className="text-sm text-gray-600 mb-1">Nomor Virtual Account:</p>
-                  <p className="text-lg font-mono font-semibold text-gray-900">{paymentData.paymentFiat.accountNumber}</p>
-                  <p className="text-sm text-gray-600 mt-1">Bank: {paymentData.paymentFiat.bankName}</p>
+                  <p className="text-lg font-mono font-semibold text-gray-900">76555126362232</p>
+                  <p className="text-sm text-gray-600 mt-1">Bank: mandiri</p>
                 </div>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li>1. Buka aplikasi mobile banking Anda</li>
@@ -655,7 +656,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   <li>4. Konfirmasi dan selesaikan pembayaran</li>
                 </ul>
                 <div className="text-sm text-gray-500 text-center">
-                  <p>Berlaku sampai: {new Date(paymentData.expiredAt).toLocaleString('id-ID')}</p>
+                  <p>Berlaku sampai: {new Date(Date.now() + 1000 * 60 * 60 * 24).toLocaleString('id-ID')}</p>
                 </div>
               </div>
             ) : null}
