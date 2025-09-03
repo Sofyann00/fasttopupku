@@ -62,15 +62,15 @@ export default function ProductPage({ params }: { params: { id: string } }) {
     }
 
     // Validate phone number format
-    const phoneRegex = /^(\+62|62|0)8[1-9][0-9]{6,9}$/
-    if (!phoneRegex.test(phoneNumber)) {
-      toast({
-        title: "Nomor Telepon Tidak Valid",
-        description: "Masukkan nomor telepon Indonesia yang valid (contoh: 08123456789)",
-        variant: "destructive"
-      })
-      return
-    }
+    // const phoneRegex = /^(\+62|62|0)8[1-9][0-9]{6,9}$/
+    // if (!phoneRegex.test(phoneNumber)) {
+    //   toast({
+    //     title: "Nomor Telepon Tidak Valid",
+    //     description: "Masukkan nomor telepon Indonesia yang valid (contoh: 08123456789)",
+    //     variant: "destructive"
+    //   })
+    //   return
+    // }
 
     setIsLoadingPayment(true)
     try {
